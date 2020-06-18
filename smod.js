@@ -34,10 +34,10 @@ var smod = {
 		document.body.innerHTML += html;
 	},
 
-	dialogText: function(title, text) {
-		// Check if Scratch 2.0 openDialogue
-		//function exists in the window
-		if (window["openDialogue"] == undefined) {
+	dialogText: function(title, text, version) {
+		// A good way to check 2.0 vs 3.0 is
+		// window["openDialogue"] == undefined
+		if (version == 3) {
 			this.dialog3(title, text);
 		} else {
 			var popupContent = document.createElement("div");
