@@ -33,14 +33,15 @@ var smod = {
 	},
 
 	dialogText: function(obj) {
-		// A good way to check 2.0 vs 3.0 is
+		// Another good way to check 2.0 vs 3.0 is
 		// window["openDialogue"] == undefined
-		if (obj.version == 3) {
-			this.dialog3(obj.title, obj.text);
-		} else {
+
+		if (document.body.children[0].id == "pagewrapper") {
 			var popupContent = document.createElement("div");
 			popupContent.innerHTML = obj.text;
 			this.dialog2(obj.title, popupContent);
+		} else {
+			this.dialog3(obj.title, obj.text);
 		}
 	}
 }
